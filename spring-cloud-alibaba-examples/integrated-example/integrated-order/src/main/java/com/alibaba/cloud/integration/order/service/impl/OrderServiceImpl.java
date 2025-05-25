@@ -28,7 +28,7 @@ import com.alibaba.cloud.integration.order.feign.dto.StorageDTO;
 import com.alibaba.cloud.integration.order.mapper.OrderMapper;
 import com.alibaba.cloud.integration.order.service.OrderService;
 import io.seata.core.context.RootContext;
-import io.seata.spring.annotation.GlobalTransactional;
+import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
