@@ -16,6 +16,7 @@
 
 package com.alibaba.cloud.stream.binder.rocketmq.convert;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,10 +72,10 @@ public class RocketMQMessageConverter extends AbstractMessageConverter {
 			try {
 				messageConverters.add((MessageConverter) ClassUtils.forName(
 						"com.alibaba.fastjson.support.spring.messaging.MappingFastJsonMessageConverter",
-						ClassUtils.getDefaultClassLoader()).newInstance());
+						ClassUtils.getDefaultClassLoader()).getDeclaredConstructor().newInstance());
 			}
-			catch (ClassNotFoundException | IllegalAccessException
-					| InstantiationException ignored) {
+			catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException |
+             InvocationTargetException ignored) {
 				// ignore this exception
 			}
 		}
